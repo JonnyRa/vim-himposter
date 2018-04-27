@@ -1,6 +1,6 @@
 let s:lastNamespace = ""
 
-function! MakeImportForCurrentFile()
+function! HimposterMakeImportForCurrentFile()
   let splitName = split(expand('%'),'/')
   let startOfNamespace = -1
   let index = 0
@@ -42,11 +42,11 @@ function! GetLastNamespace()
   return s:lastNamespace
 endfunction
 
-function! InsertImport()
+function! HimposterInsertImport()
   put='import ' . GetLastNamespace()
 endfunction
 
-function! AddImportForIdentifierUnderCursor()
+function! HimposterAddImportForIdentifierUnderCursor()
   "save view
   let viewInfo = winsaveview()
   let originalFile = expand('%:p')
@@ -67,18 +67,18 @@ function! AddImportForIdentifierUnderCursor()
   endif
 
   "generate import for the new file
-  call MakeImportForCurrentFile()
+  call HimposterMakeImportForCurrentFile()
   "switch back to previous buffer
   execute "normal! \<C-^>"
   "go to imports and insert the new one
-  call GoToImports()
-  call InsertImport()
+  call HimposterGoToImports()
+  call HimposterInsertImport()
   "restore the view
   call winrestview(viewInfo)
   normal! j
 endfunction
 
-function! GoToImports()
+function! HimposterGoToImports()
   execute "normal! ?^import\<cr>"
 endfunction
 
@@ -89,11 +89,11 @@ endif
 if g:himporterCreateMappings
   "mapping mnemonics in comments:
   "import generate
-  nnoremap <leader>ig :call MakeImportForCurrentFile()<cr>
+  nnoremap <leader>ig :call HimposterMakeImportForCurrentFile()<cr>
   "import insert
-  nnoremap <leader>ii :call InsertImport<cr>
+  nnoremap <leader>ii :call HimposterInsertImport<cr>
   "add import 
-  nnoremap <leader>ai :call AddImportForIdentifierUnderCursor()<cr>
+  nnoremap <leader>ai :call HimposterAddImportForIdentifierUnderCursor()<cr>
   "goto imports
-  nnoremap <Leader>gi :call GoToImports()<cr>
+  nnoremap <Leader>gi :call HimposterGoToImports()<cr>
 endif

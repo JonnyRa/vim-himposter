@@ -10,13 +10,13 @@ this sets the following mappings :
 ```
 "mapping mnemonics in comments:
 "import generate
-nnoremap <leader>ig :call MakeImportForCurrentFile()<cr>
+nnoremap <leader>ig :call HimposterMakeImportForCurrentFile()<cr>
 "import insert
-nnoremap <leader>ii :call InsertImport<cr>
+nnoremap <leader>ii :call HimposterInsertImport<cr>
 "add import 
-nnoremap <leader>ai :call AddImportForIdentifierUnderCursor()<cr>
+nnoremap <leader>ai :call HimposterAddImportForIdentifierUnderCursor()<cr>
 "goto imports
-nnoremap <Leader>gi :call GoToImports()<cr>
+nnoremap <Leader>gi :call HimposterGoToImports()<cr>
 ```
 
 effectively AddImportForIdentifierUnderCursor uses the other functions and is what you want most of the time
