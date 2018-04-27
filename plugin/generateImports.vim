@@ -19,14 +19,14 @@ function! MakeImportForCurrentFile()
 
   let namespaceBits = splitName[startOfNamespace:]
   let filenameIndex = len(namespaceBits)-1
-  let filename = RemoveExtension(namespaceBits[filenameIndex])
+  let filename = s:RemoveExtension(namespaceBits[filenameIndex])
 
   let namespaceBits[filenameIndex] = filename
 
   let s:lastNamespace = join (namespaceBits, ".")
 endfunction
 
-function! RemoveExtension(filename)
+function! s:RemoveExtension(filename)
   "need both single quotes and backslash here to make . work!
   let splitFilename = split(a:filename,'\.')
 
@@ -82,7 +82,11 @@ function! GoToImports()
   execute "normal! ?^import\<cr>"
 endfunction
 
-if exists('g:himporterCreateMappings') && g:himporterCreateMappings
+if !exists('g:himporterCreateMappings')
+  let g:himporterCreateMappings = 0
+endif
+
+if g:himporterCreateMappings
   "mapping mnemonics in comments:
   "import generate
   nnoremap <leader>ig :call MakeImportForCurrentFile()<cr>
