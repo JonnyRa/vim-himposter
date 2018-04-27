@@ -81,7 +81,7 @@ function! GoToImports()
   execute "normal! ?^import\<cr>"
 endfunction
 
-if g:himporterCreateMappings
+if exists('g:himporterCreateMappings') && g:himporterCreateMappings
   "mapping mnemonics in comments:
   "import generate
   nnoremap <leader>ig :call MakeImportForCurrentFile()<cr>
