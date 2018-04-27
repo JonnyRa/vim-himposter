@@ -1,4 +1,5 @@
 let s:lastNamespace = ""
+
 function! MakeImportForCurrentFile()
   let splitName = split(expand('%'),'/')
   let startOfNamespace = -1
