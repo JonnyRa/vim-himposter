@@ -91,7 +91,7 @@ if g:himporterCreateMappings
   "import generate
   nnoremap <leader>ig :call HimposterMakeImportForCurrentFile()<cr>
   "import insert
-  nnoremap <leader>ii :call HimposterInsertImport<cr>
+  nnoremap <leader>ii :call HimposterInsertImport()<cr>
   "add import 
   nnoremap <leader>ai :call HimposterAddImportForIdentifierUnderCursor()<cr>
   "goto imports
