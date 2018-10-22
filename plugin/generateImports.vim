@@ -5,7 +5,7 @@ function! HimposterMakeImportForCurrentFile()
   let startOfNamespace = -1
   let index = 0
 
-  let sourceDirectoryNames = ["src", "gen", "selenium"] 
+  let sourceDirectoryNames = ["src", "gen", "selenium", "test"] 
   for bitOfPath in splitName
     let index += 1
     if index(sourceDirectoryNames, bitOfPath) >= 0
