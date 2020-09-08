@@ -79,7 +79,7 @@ function! HimposterAddImportForIdentifierUnderCursor()
 endfunction
 
 function! HimposterGoToImports()
-  execute "normal! ?^import\>\<cr>"
+  execute "normal! ?^import\\>\<cr>"
 endfunction
 
 if !exists('g:himporterCreateMappings')
