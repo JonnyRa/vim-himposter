@@ -82,6 +82,10 @@ function! HimposterGoToImports()
   execute "normal ?^import\\>\\(\\s\\+qualified\\)\\@!\<cr>"
 endfunction
 
+function! HimposterGoToAnyImports()
+  execute "normal! ?^import\\>\<cr>"
+endfunction
+
 if !exists('g:himporterCreateMappings')
   let g:himporterCreateMappings = 0
 endif
