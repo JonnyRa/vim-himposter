@@ -100,4 +100,6 @@ if g:himporterCreateMappings
   nnoremap <leader>ai :call HimposterAddImportForIdentifierUnderCursor()<cr>
   "goto imports
   nnoremap <Leader>gi :call HimposterGoToImports()<cr>
+  "goto any import
+  nnoremap <Leader>gai :call HimposterGoToAnyImports()<cr>
 endif
