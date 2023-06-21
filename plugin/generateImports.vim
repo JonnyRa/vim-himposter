@@ -79,7 +79,7 @@ function! HimposterAddImportForIdentifierUnderCursor()
 endfunction
 
 function! HimposterGoToImports()
-  execute "normal ?^import\\>\\(\\s\\+qualified\\)\\@!\<cr>"
+  execute "normal! ?^import\\>\\(\\s\\+qualified\\)\\@!\<cr>"
 endfunction
 
 function! HimposterGoToAnyImports()
