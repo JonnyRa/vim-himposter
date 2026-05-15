@@ -91,6 +91,8 @@ function! HimposterGoToModuleDefinition()
 endfunction
 
 function! HimposterExportIdentifierUnderCursor()
+  "save view
+  let viewInfo = winsaveview()
   "copy current word to the h(imposter) register
   normal! "hyiw
 
@@ -100,6 +102,11 @@ function! HimposterExportIdentifierUnderCursor()
   "insert mode
   "this relies on there being a blank line left at the end of your export list
   execute "normal! }O, \<C-r>h\<Esc>"
+
+  "jump back to where we were but go down one line as there's now a new one
+  "above
+  call winrestview(viewInfo)
+  normal! j
 
 endfunction
 
