@@ -71,7 +71,7 @@ function! HimposterAddImportForIdentifierUnderCursor()
   "switch back to previous buffer
   execute "normal! \<C-^>"
   "go to imports and insert the new one
-  call HimposterGoToImports()
+  call HimposterGoToAnyImports()
   call HimposterInsertImport()
   "restore the view
   call winrestview(viewInfo)
@@ -99,7 +99,5 @@ if g:himporterCreateMappings
   "add import 
   nnoremap <leader>ai :call HimposterAddImportForIdentifierUnderCursor()<cr>
   "goto imports
-  nnoremap <Leader>gi :call HimposterGoToImports()<cr>
-  "goto any import
-  nnoremap <Leader>gai :call HimposterGoToAnyImports()<cr>
+  nnoremap <Leader>gi :call HimposterGoToAnyImports()<cr>
 endif
