@@ -90,6 +90,19 @@ function! HimposterGoToModuleDefinition()
   execute "normal! ?^module\<cr>"
 endfunction
 
+function! HimposterExportIdentifierUnderCursor()
+  "copy current word to the h(imposter) register
+  normal! "hyiw
+
+  call HimposterGoToModuleDefinition()
+  "jump to next paragraph, insert line above and go into insert mode
+  "add a comma and a space then paste the contents of h register and exit
+  "insert mode
+  "this relies on there being a blank line left at the end of your export list
+  execute "normal! }O, \<C-r>h\<Esc>"
+
+endfunction
+
 if !exists('g:himporterCreateMappings')
   let g:himporterCreateMappings = 0
 endif
@@ -106,4 +119,7 @@ if g:himporterCreateMappings
   nnoremap <Leader>gi :call HimposterGoToAnyImports()<cr>
   "goto module
   nnoremap <Leader>gm :call HimposterGoToModuleDefinition()<cr>
+  "add export
+  nnoremap <Leader>ae :call HimposterExportIdentifierUnderCursor()<cr>
+
 endif
