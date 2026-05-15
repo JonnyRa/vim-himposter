@@ -86,6 +86,10 @@ function! HimposterGoToAnyImports()
   execute "normal! ?^import\\>\<cr>"
 endfunction
 
+function! HimposterGoToModuleDefinition()
+  execute "normal! ?^module\<cr>"
+endfunction
+
 if !exists('g:himporterCreateMappings')
   let g:himporterCreateMappings = 0
 endif
@@ -100,4 +104,6 @@ if g:himporterCreateMappings
   nnoremap <leader>ai :call HimposterAddImportForIdentifierUnderCursor()<cr>
   "goto imports
   nnoremap <Leader>gi :call HimposterGoToAnyImports()<cr>
+  "goto module
+  nnoremap <Leader>gm :call HimposterGoToModuleDefinition()<cr>
 endif
